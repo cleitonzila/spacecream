@@ -54,8 +54,7 @@ header img {
 }
 
 main {
-    display: flex;
-    flex-direction: column;
+    display: grid;
     align-items: center;
     padding: 1.8rem 3.2rem 6rem;
 }
@@ -103,6 +102,10 @@ main {
     animation: topdown 700ms 300ms backwards;
 }
 
+header .text {
+    display: none;
+}
+
 @keyframes topdown {
     0% {
         transform: translateY(-1.5rem);
@@ -127,4 +130,50 @@ main {
         opacity: 100%;
     }
     
+}
+
+@media screen and (min-width: 769px) {
+    body {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    header .text {
+        visibility: visible;
+        color: var(--fc-header);
+        background: none;
+        font-family: var(--ff-texting);
+        text-align: center;
+        font-weight: 400;
+        line-height: 2rem;
+        -webkit-font-smoothing: antialiased;
+        margin: 0 5rem;
+    }
+    main .text {
+        display: none;
+    }
+    .cards {
+        grid-template-areas:  "A B C"
+                              "D B E"
+                              "D F E";
+    }
+
+    .cards :nth-child(1) {
+        grid-area: A;
+    }
+    .cards :nth-child(2) {
+        grid-area: B;
+    }
+    .cards :nth-child(3) {
+        grid-area: C;
+    }
+    .cards :nth-child(4) {
+        grid-area: D;
+    }
+    .cards :nth-child(5) {
+        grid-area: F;
+    }
+    .cards :nth-child(6) {
+        grid-area: E;
+    }
 }
